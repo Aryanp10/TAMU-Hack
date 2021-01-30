@@ -3,8 +3,13 @@ testing commit 2
 Ammar testing again
 testing commit
 Edwin Testing 
+<<<<<<< HEAD
 Ammar Alani...
 
+=======
+
+Final Test - Kit-Cat
+>>>>>>> 405a9d6a96889a6798c8fec3291b9764a882f836
 
 
 
