@@ -5,12 +5,8 @@ testing commit
 Edwin Testing 
 
 
-<<<<<<< HEAD
 
 
 
 
 Testing Merge Conflict #2 - Edwin Campuzano
-=======
-another merge conflict testing...
->>>>>>> c41e77a81c79eecba9114c24c06a533eb1980465
