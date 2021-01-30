@@ -5,7 +5,7 @@ import PyPDF2
 
 
 def fileReader():
-    pdfName = "file.pdf"
+    pdfName = "/TAMU-Hackold/file.pdf"
 
     pdfRead = PyPDF2.PdfFileReader(pdfName)
 
@@ -14,7 +14,7 @@ def fileReader():
         print("Page No: " + str(1 + pdfRead.getPageNumber(page)))
         pageContent = page.extractText()
         print(pageContent)
-        
+
 
 app = Flask(__name__)
 app.secret_key = "123"
