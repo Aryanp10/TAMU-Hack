@@ -11,47 +11,95 @@ body{
 }
 
 .intro{
-    background-color: pink;
-    width: 70%;
+    /* background-color: pink; */
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     float: center;
-    margin-top: 25%;
+    margin-top: 20%;
 }
 
 .big{
     font-size: 45px;
     font-weight: bold;
+    color: #2B303A;
 }
 
 .small{
-    color: grey;
+    color: #727272;
     font-size: 17px;
 }
 
 .signin_box{
     /* background-color: green; */
-
+    margin-top: 8%;
+    margin-left: auto;
+    margin-right: auto;
+    float: center;
+    width:60%;
 }
 
-.form-group {
-    position: relative;
-    margin-bottom: 1.5rem
+
+.box{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+    background-color: rgba(221, 21, 21, 0.89);
+	border-radius:3px;
+	padding:70px 100px;
 }
 
-.form-control-placeholder {
-    position: absolute;
-    top: 0;
-    padding: 7px 0 0 0;
-    transition: all 300ms;
-    opacity: 0.5
+.input-container{
+	position:relative;
+	margin-bottom:25px;
 }
 
-.form-control:focus+.form-control-placeholder,
-.form-control:valid+.form-control-placeholder {
-    font-size: 80%;
-    transform: translate3d(0, -100%, 0);
-    opacity: 1
+.input-container label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:#7C7C7C;	
+    /* pointer-event:none; */
+	transition: all 0.5s ease-in-out;
+}
+
+.input-container input{ 
+  border:0;
+  border-bottom:1px solid rgb(146, 145, 145);  
+  background:transparent;
+  width:75%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:rgb(0, 0, 0);
+}
+
+.input-container input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #e74c3c;	
+}
+
+.btn{
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    background-color:  rgb(255, 246, 192);
+  }
+  
+.btn:hover{
+background-color:rgb(185, 185, 185);
+transition: 0.3s;
+}
+
+.input-container input:focus ~ label,
+.input-container input:valid ~ label{
+	top:-12px;
+	font-size:12px;	
 }
 
 .right{
