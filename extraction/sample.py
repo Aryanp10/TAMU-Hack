@@ -4,7 +4,8 @@ from tabulate import tabulate
 
 
 def fileReader():
-    pdfName = "/extraction/file.pdf"
+    pdfName = open(
+        'C:/Users/ammar/Desktop/tamuHack/TAMU-Hack/extraction/file.pdf', 'rb')
 
     pdfRead = PyPDF2.PdfFileReader(pdfName)
 
@@ -12,15 +13,9 @@ def fileReader():
         page = pdfRead.getPage(i)
         if i > 0:
             print(
-                "======================================================================")
+                '==================================================================================')
         pageContent = page.extractText()
         print(pageContent)
-
-    # pdfName.close()
-
-# str(1 + pdfRead.getPageNumber(page)) <--------------- for page number
-
-# def student_dictionary():
 
 
 if __name__ == "__main__":
