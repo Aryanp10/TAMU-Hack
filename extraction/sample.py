@@ -1,27 +1,12 @@
-import PyPDF2
-from tabula import read_pdf
-from tabulate import tabulate
-
+from PyPDF2 import PdfFileReader, PdfFileWriter
 
 def fileReader():
-    pdfName = "/extraction/file.pdf"
+    file_path = "extraction/file.pdf"
+    pdfFileObj = open(file_path)
+    pdfReader = PdfFileReader(pdfFileObj)
 
-    pdfRead = PyPDF2.PdfFileReader(pdfName)
-
-    for i in range(pdfRead.getNumPages()):
-        page = pdfRead.getPage(i)
-        if i > 0:
-            print(
-                "======================================================================")
-        pageContent = page.extractText()
-        print(pageContent)
-
-    # pdfName.close()
-
-# str(1 + pdfRead.getPageNumber(page)) <--------------- for page number
-
-# def student_dictionary():
-
+    print(pdfReader)
 
 if __name__ == "__main__":
     fileReader()
+    print("Hello")
