@@ -142,3 +142,6 @@ a:hover {
         height: 400px
     }
 }
+
+
+CREATE TABLE user_info (id varchar(5), name varchar(30), email varchar(40), password varchar(100) )
