@@ -1,7 +1,7 @@
 from flask import Flask
 from flask import render_template, request, url_for, redirect, g, session, flash
 import PyPDF2
-
+from flask_sqlalchemy import SQLAlchemy
 
 
 # def fileReader():
@@ -18,6 +18,20 @@ import PyPDF2
 
 app = Flask(__name__)
 app.secret_key = "123"
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
+
+db=SQLAlchemy(app)
+
+class Info(db.Model):
+    id=db.Column(db.Integer, primary_key = True)
+    name = db.Column(db.String(200), nullable = False)
+    school= db.Column(db.String(200), nullable = False)
+    email = db.Column(db.String(100), nullable = False)
+    password = db.Column(db.String(200), nullable = False)
+
+    def __repr__(self):
+        return '<Task %r>' % self.id
+
 
 @app.route("/", methods=["POST", "GET"])
 def index():
