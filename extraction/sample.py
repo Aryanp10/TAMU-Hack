@@ -1,6 +1,4 @@
-import PyPDF2
 import tabula as tb
-from tabulate import tabulate
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
 # Read all the text from a pdf file and save teh content on
@@ -13,23 +11,6 @@ def fileReader2(pagelist):
         for i in range(pdfRead.getNumPages()):
             page = pdfRead.getPage(i)
             pagelist.append(page.extractText().replace('\n', ''))
-    except Exception as e:
-        print("Error {}".format(e))
-
-
-def fileReader():
-    pdfName = open('extraction/file.pdf', 'rb')
-
-    try:
-        pdfRead = PyPDF2.PdfFileReader(pdfName)
-
-        for i in range(pdfRead.getNumPages()):
-            page = pdfRead.getPage(i)
-            if i > 0:
-                print(
-                    '==================================================================================')
-            pageContent = page.extractText()
-            print(pageContent)
     except Exception as e:
         print("Error {}".format(e))
 
@@ -50,16 +31,8 @@ def tableReader():
         print("Error {}".format(e))
 
 
-'''
-    try:
-        df = tb(pdfName)
-        print(df)
-    except Exception as e:
-        print("Error {}".format(e))
-'''
-
 if __name__ == "__main__":
-    tableReader()
+
     pagelist = []
     fileReader2(pagelist)
     print(pagelist)
