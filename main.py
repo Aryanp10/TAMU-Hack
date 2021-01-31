@@ -120,13 +120,18 @@ def signin():
 
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
+        # cursor.execute("SELECT * FROM user_info")       
+        # result = cursor.fetchall()
+        # for row in result:
+        #     print(row)
 
-        command=f"SELECT COUNT(*) FROM user_info WHERE email LIKE '%{session['email']}%' AND password LIKE '%{session['password']}%'"
+        command=f"SELECT COUNT(*) FROM user_info WHERE email LIKE '%{session['signin_email']}%' AND password LIKE '%{session['signin_password']}%'"
         cursor.execute(command)
-        if cursor.fetchall()[0] == 1:
-            session['accountemail'] == session['email']
+        if cursor.fetchall()[0][0] == 1:
+            session['accountemail'] = session['signin_email']
             return redirect(url_for("index"))
         else:
+
             flash('Email or password does not match.')
         
 
