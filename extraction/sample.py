@@ -1,21 +1,22 @@
 from PyPDF2 import PdfFileReader, PdfFileWriter
 
-
-def fileReader2():
+# Read all the text from a pdf file and save teh content on 
+def fileReader2(pagelist):
     pdfName = open("extraction/file.pdf", 'rb')
     try:
         pdfRead = PdfFileReader(pdfName)
         for i in range(pdfRead.getNumPages()):
             page = pdfRead.getPage(i)
-            if i > 0:
-                print(
-                    '==================================================================================')
-            pageContent = page.extractText()
-            print(pageContent)
+            pagelist.append(page.extractText().replace('\n', ''))
     except Exception as e:
         print("Error {}".format(e))
 
 
-if __name__ == "__main__":
-    fileReader2()
+# Extract Important information ("Course info", "Meeting time", etc.)
+def extractInfo(pagelist):
     print("Hello")
+
+if __name__ == "__main__":
+    pagelist = []
+    fileReader2(pagelist)
+    print(pagelist)
