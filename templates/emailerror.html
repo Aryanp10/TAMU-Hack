@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/index.css') }}">
+    
+    <title>Home</title>
+</head>
+
+<body>
+    <div class="left">
+        <div class="intro">
+            <p class="big">Email already used. Please register with another email.
+                
+            </p>
+
+        </div>
+        <div class="signin_box">
+            <form id="signup_form" method="POST" action="#">  
+                <div class="input-container">		
+                    <input type="text" name="name" required/>
+                    <label>Name</label>
+                </div>
+
+                <div class="input-container">		
+                    <input type="text" name="school" required/>
+                    <label>School</label>
+                </div>
+
+
+                <div class="input-container">		
+                    <input type="mail" name="email" required/>
+                    <label>Email</label>
+                </div>
+                <div class="input-container">		
+                    <input type="password" name="password" required/>
+                    <label>Password</label>
+                </div>
+                    <button type="submit" class="btn">Sign up</button>
+            </form>	
+        </div>
+        
+    </div>
+    <div class="right">
+        <img class="homepage_img" src="/static/images/homepage1.png" />
+    </div>
+
+</body>
+  
+  
+</html>

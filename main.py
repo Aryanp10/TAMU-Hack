@@ -1,7 +1,5 @@
 from flask import Flask
 from flask import render_template, request, url_for, redirect, g, session, flash
-import PyPDF2
-from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 import random, string
 from decimal import Decimal
@@ -49,13 +47,13 @@ def index():
         
         # command = "DROP TABLE user_info"
         # cursor.execute(command)
-        # command = "CREATE TABLE user_info (id varchar(5), name varchar(30), school varchar(100), email varchar(40), password varchar(100) )"
+        # command = "CREATE TABLE user_info (id varchar(5), name varchar(30), school varchar(100), email varchar(40), password varchar(100), PRIMARY KEY(email) )"
         # cursor.execute(command)
 
-        cursor.execute("SELECT * FROM user_info")       
-        result = cursor.fetchall()
-        for row in result:
-            print(row)
+        # cursor.execute("SELECT * FROM user_info")       
+        # result = cursor.fetchall()
+        # for row in result:
+        #     print(row)
 
         session['id'] = genID(5)
         session['name'] = request.form['name']
@@ -64,15 +62,21 @@ def index():
         session['password'] = request.form['password']
  
         command = f"INSERT INTO user_info VALUES ('{session['id']}', '{session['name']}', '{session['school']}', '{session['email']}', '{session['password']}')"
-        cursor.execute(command)
+        try:
+            cursor.execute(command)
+            conn.commit()
+            return redirect(url_for("signin"))
+        
+        except:
+            return render_template("emailerror.html")
+
 
         cursor.execute("SELECT * FROM user_info")       
         result = cursor.fetchall()
         for row in result:
             print(row)
 
-        conn.commit()
-        return redirect(url_for("signin"))
+
     else:
         return render_template("index.html")
 
