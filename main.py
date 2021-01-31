@@ -18,19 +18,6 @@ from decimal import Decimal
 
 app = Flask(__name__)
 app.secret_key = "123"
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
-
-# db=SQLAlchemy(app)
-
-# class user_info(db.Model):
-#     id=db.Column(db.Integer, primary_key = True)
-#     name = db.Column(db.String(200), nullable = False)
-#     school= db.Column(db.String(200), nullable = False)
-#     email = db.Column(db.String(100), nullable = False)
-#     password = db.Column(db.String(200), nullable = False)
-
-#     def __repr__(self):
-#         return '<Task %r>' % self.id
 
 
 def genID(length):
@@ -81,16 +68,6 @@ def emailerror():
     if request.method == "POST":
         conn = sqlite3.connect('database.db')
         cursor = conn.cursor()
-        
-        # command = "DROP TABLE user_info"
-        # cursor.execute(command)
-        # command = "CREATE TABLE user_info (id varchar(5), name varchar(30), school varchar(100), email varchar(40), password varchar(100), PRIMARY KEY(email) )"
-        # cursor.execute(command)
-
-        # cursor.execute("SELECT * FROM user_info")       
-        # result = cursor.fetchall()
-        # for row in result:
-        #     print(row)
 
         session['id'] = genID(5)
         session['name'] = request.form['name']
@@ -133,9 +110,10 @@ def signin():
         else:
 
             flash('Email or password does not match.')
-        
-
     return render_template("signin.html")
+
+
+)
 
 if __name__ == "__main__":
     app.run(debug=True)

@@ -10,13 +10,18 @@ body{
     float: left;
 }
 
+.logo{
+    padding-left: 20px;
+}
+
 .intro{
     /* background-color: pink; */
     width: 60%;
     margin-left: auto;
     margin-right: auto;
     float: center;
-    margin-top: 20%;
+    margin-top: 2%;
+    transform: translate(0,-12%);
 }
 
 .big{
@@ -28,6 +33,7 @@ body{
 .small{
     color: #727272;
     font-size: 17px;
+    transform: translate(0,-70%);
 }
 
 .signin_box{
@@ -37,6 +43,7 @@ body{
     margin-right: auto;
     float: center;
     width:60%;
+    transform: translate(0,-18%);
 }
 
 
@@ -124,4 +131,17 @@ transition: 0.3s;
     color:rgb(245, 0, 0);
     font-size: 20px;
     font-weight: 100;
+}
+
+.main_back{
+    width: 100%;
+    height: 100%;
+    background-color: #F8F7F7;
+}
+
+.main_front{
+
+    width:70%;
+    height: 100%;
+    background-color: white;
 }
