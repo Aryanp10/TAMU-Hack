@@ -4,7 +4,7 @@ from tabulate import tabulate
 
 
 def fileReader():
-    pdfName = open('file2.pdf', 'rb')
+    pdfName = "/extraction/file.pdf"
 
     pdfRead = PyPDF2.PdfFileReader(pdfName)
 
@@ -15,6 +15,8 @@ def fileReader():
                 "======================================================================")
         pageContent = page.extractText()
         print(pageContent)
+
+    # pdfName.close()
 
 # str(1 + pdfRead.getPageNumber(page)) <--------------- for page number
 
