@@ -22,7 +22,7 @@ body{
 .big{
     font-size: 45px;
     font-weight: bold;
-    color: #2B303A;
+    color: #254075;
 }
 
 .small{
@@ -117,4 +117,11 @@ transition: 0.3s;
     transform: translateY(-50%);
     
     width: 60%;
+}
+
+.flash_s{
+    margin-top:20px;
+    color:rgb(245, 0, 0);
+    font-size: 20px;
+    font-weight: 100;
 }

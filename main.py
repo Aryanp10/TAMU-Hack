@@ -65,29 +65,70 @@ def index():
         try:
             cursor.execute(command)
             conn.commit()
+            cursor.execute("SELECT * FROM user_info")       
+            result = cursor.fetchall()
+            for row in result:
+                print(row)
             return redirect(url_for("signin"))
-        
         except:
             return render_template("emailerror.html")
-
-
-        cursor.execute("SELECT * FROM user_info")       
-        result = cursor.fetchall()
-        for row in result:
-            print(row)
-
-
     else:
         return render_template("index.html")
 
+
+@app.route("/emailerror", methods=["POST", "GET"])
+def emailerror():
+    if request.method == "POST":
+        conn = sqlite3.connect('database.db')
+        cursor = conn.cursor()
+        
+        # command = "DROP TABLE user_info"
+        # cursor.execute(command)
+        # command = "CREATE TABLE user_info (id varchar(5), name varchar(30), school varchar(100), email varchar(40), password varchar(100), PRIMARY KEY(email) )"
+        # cursor.execute(command)
+
+        # cursor.execute("SELECT * FROM user_info")       
+        # result = cursor.fetchall()
+        # for row in result:
+        #     print(row)
+
+        session['id'] = genID(5)
+        session['name'] = request.form['name']
+        session['school'] = request.form['school']
+        session['email'] = request.form['email']
+        session['password'] = request.form['password']
+ 
+        command = f"INSERT INTO user_info VALUES ('{session['id']}', '{session['name']}', '{session['school']}', '{session['email']}', '{session['password']}')"
+        try:
+            cursor.execute(command)
+            conn.commit()
+            cursor.execute("SELECT * FROM user_info")       
+            result = cursor.fetchall()
+            for row in result:
+                print(row)
+            return redirect(url_for("signin"))
+        except:
+            return render_template("emailerror.html")
+    else:
+        return render_template("emailerror.html")
+
 @app.route("/signin", methods=["POST", "GET"])
 def signin():
+    if request.method == "POST":
+        session['signin_email'] = request.form['signin_email']
+        session['signin_password'] = request.form['signin_password']
 
+        conn = sqlite3.connect('database.db')
+        cursor = conn.cursor()
 
-    # session['signin_email'] = request.form['signin_email']
-    # session['signin_password'] = request.form['signin_password']
-
-    # command=f"SELECT COUNT(*) FROM user_info WHERE email LIKE '%{session}%'"
+        command=f"SELECT COUNT(*) FROM user_info WHERE email LIKE '%{session['email']}%' AND password LIKE '%{session['password']}%'"
+        cursor.execute(command)
+        if cursor.fetchall()[0] == 1:
+            session['accountemail'] == session['email']
+            return redirect(url_for("index"))
+        else:
+            flash('Email or password does not match.')
+        
 
     return render_template("signin.html")
 
