@@ -5,7 +5,7 @@ h1   {
     color: blue;
 }
 p    {
-    color: red;
+    color:  rgb(209, 134, 134);
 }
 
 /* Add a black background color to the top navigation */
@@ -102,6 +102,8 @@ p    {
 }
 .signup-form .row div:first-child{
     padding-right: 10px;
+    margin-bottom: 10px;
+
 }
 .signup-form .row div:last-child{
     padding-left: 0px;
