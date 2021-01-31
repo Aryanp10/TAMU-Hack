@@ -1,7 +1,6 @@
 from flask import Flask
 from flask import render_template, request, url_for, redirect, g, session, flash
 import PyPDF2
-from flask_sqlalchemy import SQLAlchemy
 import sqlite3
 
 # def fileReader():
@@ -44,7 +43,7 @@ def index():
         session['school'] = request.form['school']
         session['email'] = request.form['email']
         session['password'] = request.form['password']
-        
+
         # user = user_info(id=id_no, name = session['name'], school = session['school'], email=session['email'], password=session['password'])
         # db.session.add(user)
         # db.session.commit()
@@ -55,9 +54,11 @@ def index():
     else:
         return render_template("index.html")
 
+
 @app.route("/signin", methods=["POST", "GET"])
 def signin():
     return render_template("signin.html")
+
 
 if __name__ == "__main__":
     app.run(debug=True)
