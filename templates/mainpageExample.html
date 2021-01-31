@@ -41,6 +41,16 @@ body {
   margin-left: 50px;
 }
 
+div.terms{
+    display:block;
+    position:absolute;
+    bottom:0;
+    right:0;
+    width:100%;
+    background:#eee;
+    border:1px solid #ddd;
+}
+
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
@@ -56,10 +66,7 @@ body {
   <a href="#">Clients</a>
   <a href="#">Contact</a>
 
-  <!--Footer-->
-<footer style="height:auto; background-color:#F7C201;">
-    <h1><Made with 🤍 at DigitalOcean</h1>
-</footer>
+
 </div>
 
 <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Menu</span>
@@ -74,7 +81,10 @@ function closeNav() {
 }
 </script>
    
-
+<!-- <footer>&copy; Copyright 2021 HTML.am</footer> -->
+<div class="terms">
+    <center>&copy; Probuggers Copyright 2021</center>
+</div>
 </body>
 
 </html> 
