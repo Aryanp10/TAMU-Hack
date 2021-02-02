@@ -1,2 +1,2 @@
 # TAMU-Hack
-testing Aryan
+This project was created for the 2021 TAMU Hackathon.
